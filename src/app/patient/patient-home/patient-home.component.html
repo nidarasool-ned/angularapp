@@ -1,0 +1,49 @@
+<div style="margin-left:40px;">
+  <form class="form-inline" (submit)="searchDoctor()" id="searchDoctorForm">
+    <div class="form-group">
+      <label for="searchChoice">Search doctor by </label>
+      <select name="searchChoice" class="form-control" id="searchChoice" style="margin-left: 20px;">
+        <option value="1">Name</option>
+        <option value="2">Cell Phone</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-left: 20px;">
+      <input id="userinput" required name="userinput" type="text"  class="form-control">
+    </div>
+    <div class="form-group" style="margin-left: 20px;">
+      <button class="btn btn-success">Search</button>
+    </div>
+    </form>
+
+    <div class="container" [style.display]="doctorsNotFound ? 'block' : 'none'">
+      <br><br><p class="text-center">No doctors found</p>
+    </div>
+
+    <div class="container" [style.display]="doctorsFound ? 'block' : 'none'">
+
+      <br><br>
+      <div *ngFor="let doctor of doctorsArray">
+        <div class="card">
+            <div class="card-body">
+              <table style="width:100%;">
+                <tr>
+                  <td style="width:40%;">Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.name}}</span></td>
+                  <td style="width:50%;">Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.gender}}</span></td>
+                  <td style="width:10%"><button class="btn btn-success" [id]="doctor.doctor_id" (click)="changeFollowStatus($event)">{{doctor.follow_status}}</button></td>
+                  </tr>
+                  <tr>
+                  <td style="width:40%;">Contact: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.cellphone}}</span></td>
+                  <td style="width:60%;">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.email}}</span></td>
+                </tr>
+              </table>
+              
+            </div>
+          </div>
+          <br>
+    </div>
+    </div>
+    
+    
+
+
+</div>

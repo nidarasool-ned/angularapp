@@ -1,0 +1,43 @@
+
+<div class="container">
+  <h4 class="text-center">Prescription Detail</h4>
+       <br>
+       <table style="width:100%;">
+        <tr>
+          <td style="width: 25%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date:</td>
+          <td>
+           <span class="font-weight-bold">{{prescriptionObject.date}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment:</td>
+          <td> 
+            <span class="font-weight-bold">{{prescriptionObject.comment}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescription:</td>
+            <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td> 
+                <img [src]="prescriptionObject.file" alt="Prescription Image"/>
+              </td>
+            </tr>
+        
+      </table>
+          
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    <br><br>
+    <button class="btn btn-success" (click)="goToPreviousPage()">Back</button>
+    

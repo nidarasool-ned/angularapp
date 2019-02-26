@@ -1,0 +1,26 @@
+<h4>My Doctors</h4>
+<br><br>
+<div class="text-center" [style.display]="doctorsNotFound ? 'block' : 'none'">
+No Doctors
+</div>
+<div [style.display]="doctorsFound ? 'block' : 'none'">
+<div *ngFor="let doctor of doctorsArray">
+    <div class="card">
+        <div class="card-body">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:40%;">Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.name}}</span></td>
+              <td style="width:60%;">Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.gender}}</span></td>
+            
+              </tr>
+              <tr>
+              <td style="width:40%;">Contact: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.cellphone}}</span></td>
+              <td style="width:60%;">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{doctor.email}}</span></td>
+            </tr>
+          </table>
+          
+        </div>
+      </div>
+      <br>
+</div>
+</div>

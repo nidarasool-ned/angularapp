@@ -1,0 +1,12 @@
+<h4>My Prescriptions</h4>
+
+<br><p class="text-center"  [style.display]="prescriptionsNotFound ? 'block' : 'none'">No Prescriptions</p>
+
+<table style="width:100%;" [style.display]="prescriptionsFound ? 'block' : 'none'" class="table table-hover">
+        <tr *ngFor="let pres of prescriptionsArray" [id]="pres.prescription_id" class="clickable" (click)="navigateToDetail($event)">
+          <td style="width:30%;">{{pres.date}}</td>
+          <td style="width:50%;">{{pres.comment}}<br></td>
+          <td style="width:50%;">{{pres.doctor_name}}</td>
+        </tr>
+
+      </table>

@@ -1,0 +1,72 @@
+.pro
+{
+     position: absolute;
+     left: 25%;
+     top: 5%;
+     height:auto;
+     width:400px;
+     border-radius:5px;
+     background-color:rgba(230,230,230,0.5);
+     margin:0 auto;
+     padding-top:40px;
+     padding-left:40px;
+     box-shadow: 4px 4px 5px #808080;
+}
+
+.pro img
+{
+   margin-left: 30%;
+   margin-top: -30%;
+
+}
+
+.pro h2
+{
+    color: gray;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: -30px;
+    margin-left: -40px;
+    padding-left: 30%
+}
+.pro table
+{
+    width: 100%;
+    border: 0px;
+}
+.pro td
+{
+    border: 0px
+}
+.pro label
+{
+    color: gray;
+    font-weight: bold;
+}
+.pro input
+{    background-color: white;
+     color:gray;
+     width:75%;
+     height:30px;
+     margin-top: 10px;
+     padding-left:3px;
+     border-radius:5px;
+}
+.pro input[type="radio"]
+{    background-color: white;
+     color:gray;
+     width:auto;
+     height:auto;
+     margin-top: 10px;
+     padding-left:3px;
+}
+
+.pro input[type="submit"]
+{
+     background-color: #17A2B8;
+     color:white;
+     width: 83%;
+     margin-bottom: 20px;
+     font-weight: bold;
+     
+}

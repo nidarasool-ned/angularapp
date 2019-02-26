@@ -1,0 +1,35 @@
+
+  <div class="pro" >
+    <img src="./../../assets/user.png">
+    <form  (submit)="login($event)">
+    <table>
+    <tr>
+        <td colspan="2"><h2>Welcome User</h2></td>
+    </tr>
+    <tr>
+      <td>
+        <input type="radio" id="r1" name="type" value="doctor" ><label>Doctor</label>
+        <br>
+        <input type="radio" id="r2" name="type" value="patient"><label>Patient</label>
+      </td>
+    </tr>
+
+    <tr>
+       <td> <label>Email  </label></td>
+        <td><input type="email" id="username" autofocus required> </td>
+    </tr>
+    <tr>	
+        <td><label>Password  </label> </td>
+        <td> <input type="password" id="password"  required></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" name="submit" value="LOGIN"></td>
+    
+    <tr>
+      <td>
+        <a  routerLink="/signup"><label> Signup? </label></a> 
+      </td>
+    </tr>
+    </table>
+    </form>
+</div>

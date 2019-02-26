@@ -1,0 +1,54 @@
+
+  <div class="pro" >
+    <img src="./../../assets/user.png">
+      <form (submit)="register($event)">
+      <table>
+      <tr>
+          <td colspan="2"><h2>Registeration Form</h2></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="r1" name="type" value="doctor" ><label>Doctor</label>
+          <br>
+          <input type="radio" id="r2" name="type" value="patient"><label>Patient</label>
+        </td>
+      </tr>
+      <tr>
+         <td> <label>Name</label></td>
+          <td><input type="text" id="name" autofocus required> </td>
+      </tr>
+      <tr>
+        <td> <label>Age</label></td>
+         <td><input type="number" id="age" > </td>
+       </tr>
+      <tr>
+        <td> <label>Gender</label></td>
+         <td><input type="text" id="gender" > </td>
+     </tr>
+     <tr>
+      <td> <label>Address</label></td>
+     <td><input type="text" id="address" > </td>
+ </tr>
+ <tr>
+  <td> <label>Contact</label></td>
+   <td><input type="tel" id="contact" > </td>
+</tr>
+<tr>
+  <td> <label>Email Address</label></td>
+   <td><input type="email" id="email"  required> </td>
+</tr>
+<tr>
+  <td> <label>City</label></td>
+   <td><input type="text" id="city"  > </td>
+</tr>
+      <tr>	
+          <td><label>Password  </label> </td>
+          <td> <input type="password" id="password"  required></td>
+      </tr>
+      <tr>
+          <td colspan="2"><input type="submit" id="submit" value="Register"></td>
+      </tr>
+      
+      </table>
+      </form>
+  </div>

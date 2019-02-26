@@ -1,0 +1,27 @@
+.view-profile-heading
+{
+    text-align: center;
+    color: rgb(14, 143, 163); 
+}
+
+.profileimage{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding-row
+{
+    margin-top: 30px; 
+}
+.link-icons{
+    height: 15px;
+    width: auto;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+a
+{
+    vertical-align: middle;
+}

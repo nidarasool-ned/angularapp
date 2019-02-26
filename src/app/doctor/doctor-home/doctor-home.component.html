@@ -1,0 +1,22 @@
+<h4>My Patients</h4>
+<br>
+<div *ngFor="let patient of patientsArray">
+    <div class="card">
+        <div class="card-body">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:40%;">MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+              <td style="width:50%;">Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td>
+              <td style="width:10%"><button class="btn btn-success" [id]="patient.patient_id" (click)="changeFollowStatus($event)">Unfollow</button></td>
+              </tr>
+              <tr>
+              <td style="width:40%;">Contact: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.cellphone}}</span></td>
+              <td style="width:60%;">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+            </tr>
+          </table>
+          
+        </div>
+      </div>
+      <br>
+</div>
+  

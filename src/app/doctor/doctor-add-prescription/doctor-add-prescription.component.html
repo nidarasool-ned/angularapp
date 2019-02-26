@@ -1,0 +1,166 @@
+<div style="margin-left:40px;">
+    <form class="form-inline" (submit)="searchPatient()" id="searchPatientForm">
+      <div class="form-group">
+        <label for="searchChoice">Search patient by </label>
+        <select name="searchChoice" class="form-control" id="searchChoice" style="margin-left: 20px;">
+          <option value="1">MRN#</option>
+          <option value="2">Name</option>
+          <option value="3">Cell Phone</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-left: 20px;">
+        <input id="userinput" required name="userinput" type="text"  class="form-control">
+      </div>
+      <div class="form-group" style="margin-left: 20px;">
+        <button class="btn btn-success">Search</button>
+      </div>
+      </form>
+
+      <div [style.display]="notfollowed ? 'block' : 'none'">
+        <br><br>
+          <div>
+              <div class="card">
+                  <div class="card-body">
+                    <table style="width:100%;">
+                      <tr>
+                        <td style="width:30%;">MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+                        <td style="width:45%;">Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td>
+                        <td style="width:25%"><button class="btn btn-success" (click)="changeFollowStatus()">{{textButton}}</button></td>
+                        </tr>
+                        <tr>
+                        <td style="width:40%;">Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.gender}}</span></td>
+                        <td style="width:60%;">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+                      </tr>
+                    </table>
+                    
+                  </div>
+                </div>
+                <br>
+          </div>
+            
+      </div>
+
+      <div [style.display]="followed ? 'block' : none">
+    
+      <div [style.display]="addPatientHidden ? 'none' : 'block'">
+          <div class="container">
+              <h4 class="text-center" style="margin-top: 20px">Add Patient</h4><br>
+            <form #addpatient="ngForm" (ngSubmit)="addPatient(addpatient)">
+            <div class="row">
+      
+                  <table style="width:100%;">
+                    <tr>
+                      <td> 
+                        <label for="patientname">Name: </label>
+                        <input ngModel type="text" id="patientname" name="patientname" class="form-control">
+                      </td>
+                      <td>
+                          <label for="patientage">Age: </label>
+                          <input ngModel type="number" id="patientage" name="patientage" class="form-control">
+                      </td>
+                    </tr>
+      
+                    <tr>
+                        <td>
+                            <label for="patientemail">Email: </label>
+                            <input ngModel type="text" id="patientemail" name="patientemail" class="form-control">
+                        </td>
+                        <td>
+                            <label for="patientphone">Cell Phone: &nbsp;&nbsp;&nbsp;</label>
+                            <input ngModel type="text" id="patientphone" name="patientphone" class="form-control">
+                        </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              <label for="patientaddress">Address: &nbsp;&nbsp;&nbsp;</label>
+                              <input ngModel type="text" id="patientaddress" name="patientaddress" class="form-control">
+                          </td>
+                
+                        </tr>
+      
+                        <tr>
+                          <td colspan="2">
+                              <label for="patientgender">Gender: </label><br>
+                                <input ngModel type="radio" name="patientgender" value="male" checked> Male<br>
+                                <input ngModel type="radio" name="patientgender" value="female"> Female
+                             
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
+                              <label for="patientpassword">Password: &nbsp;&nbsp;&nbsp;</label>
+                              <input ngModel type="text" id="patientpassword" name="patientpassword" class="form-control">
+                          </td>
+                          <td>
+                            <label for="patientcity">City: </label>
+                            <select ngModel name="patientcity" class="form-control" id="patientcity">
+                                <option *ngFor="let city of citiesArray" [value]="city.city_id">{{city.city_name}}</option>
+                            </select>
+                        </td>
+                        </tr>
+                  </table>
+                  <button class="btn btn-success" style="margin-left: 30px;">Add</button>
+      
+            </div>
+      
+          </form>
+      
+          </div>
+        </div>
+      
+
+        <!---->
+        <div [style.display]="isHidden ? 'none' : 'block'">
+            <div class="container">
+                <h4 class="text-center" style="margin-top: 20px">Patient Details</h4><br>
+                <table style="width:100%;">
+                  <tr>
+                    <td>MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+                    <td>Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td> 
+                  </tr>
+                  <tr>
+                      <td>Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.gender}}</span></td>
+                    <td>Age: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.age}}</span></td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Cell Phone: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.cellphone}}</span></td>
+                    <td>Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+                  </tr>
+                </table>
+        
+                <br><br>
+              <form #addpres="ngForm" (ngSubmit)="addPrescription(addpres)">
+              <div class="row">
+                  <div class="sm-row-10">
+                      <h5 style="margin-top: 20px">Prescription</h5><br>
+                      <input ngModel type="file" id="prescriptionFile" name="prescriptionFile"><br><br>
+                  </div>
+              </div>
+        
+              <div class="row">
+                  <div class="sm-row-10">
+                      <h5 style="margin-top: 20px">Test Report</h5><br>
+                      <input ngModel type="file" id="testreportFile" name="testreportFile"><br><br><br><br>
+                  </div>
+              </div>
+        
+              <div class="row">
+                  <div class="sm-row-10">
+                
+                      <label for="comments">Comments</label><br>
+                      <textarea ngModel name="comments" id="comments" class="form-control" rows="5" cols="80"></textarea><br><br>
+        
+                      <button class="btn btn-success">Save</button>
+                      
+                  </div>
+              </div>
+            </form>
+        
+            </div>
+          </div>
+        
+     
+    </div>
+
+  </div>

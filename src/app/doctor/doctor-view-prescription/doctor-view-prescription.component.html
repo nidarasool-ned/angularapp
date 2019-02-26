@@ -1,0 +1,108 @@
+<div style="margin-left:40px;">
+    <form class="form-inline"  (submit)="searchPatient()" id="searchPatientForm">
+      <div class="form-group">
+        <label for="searchChoice">Search patient by </label>
+        <select name="searchChoice" class="form-control" id="searchChoice" style="margin-left: 20px;">
+            <option value="1">MRN#</option>
+            <option value="2">Name</option>
+            <option value="3">Cell Phone</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-left: 20px;">
+        <input id="userinput" required name="userinput" type="text"  class="form-control">
+      </div>
+      <div class="form-group" style="margin-left: 20px;">
+        <button class="btn btn-success">Search</button>
+      </div>
+      </form>
+        
+    
+      <div>
+
+          <div class="container" [style.display]="notFoundError ? 'block' : 'none'">
+              <br><br><p class="text-center">No results found</p>
+      
+          </div>
+
+          <div [style.display]="notfollowed ? 'block' : 'none'">
+            <br><br>
+              <div>
+                  <div class="card">
+                      <div class="card-body">
+                        <table style="width:100%;">
+                          <tr>
+                            <td style="width:30%;">MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+                            <td style="width:45%;">Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td>
+                            <td style="width:25%"><button class="btn btn-success" (click)="changeFollowStatus()">{{textButton}}</button></td>
+                            </tr>
+                            <tr>
+                            <td style="width:40%;">Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.gender}}</span></td>
+                            <td style="width:60%;">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+                          </tr>
+                        </table>
+                        
+                      </div>
+                    </div>
+                    <br>
+              </div>
+                
+          </div>
+
+          <div [style.display]="followed ? 'block' : none">
+
+
+        <div class="container" [style.display]="prescriptionsView ? 'block' : 'none'">
+            <h4 class="text-center" style="margin-top: 20px">Patient Prescriptions</h4><br>
+            <table style="width:100%;">
+                <tr>
+                    <td>MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+                    <td>Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td>
+                </tr>
+                <tr>
+                    <td>Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.gender}}</span></td>
+                    <td>Age: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.age}}</span></td>
+                </tr>
+                <tr>
+                  <td>Cell Phone: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.cellphone}}</span></td>
+                  <td colspan="2">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+                </tr>
+              </table>
+              <br>
+               <h4>Prescriptions</h4>
+                  
+                  <br><p class="text-center"  [style.display]="noPrescriptions ? 'block' : 'none'">No Prescriptions</p>
+           
+            
+               <!--
+              <table style="width:100%;" [style.display]="prescriptionsFound ? 'block' : 'none'" class="table table-hover">
+                <tr *ngFor="let pres of presArray" class="clickable" [routerLink]="['/doctor/view-prescription/', pres.prescription_id]">
+                  <td>{{pres.date}}</td>
+                  <td>{{pres.comment}}<br>
+                  <img [src]="pres.file" alt="Prescription" height="2000" width="1300">
+                </td>
+                </tr>
+
+              </table>
+            -->
+
+            <table style="width:100%;" [style.display]="prescriptionsFound ? 'block' : 'none'" class="table table-hover">
+                <tr *ngFor="let pres of presArray" [id]="pres.prescription_id" class="clickable" (click)="navigateToDetail($event)">
+                  <td style="width:30%;">{{pres.date}}</td>
+                  <td style="width:70%;">{{pres.comment}}<br>
+                </td>
+                </tr>
+
+              </table>
+            
+
+          
+   
+    
+        </div>
+        </div>
+      </div>
+    
+    
+    </div>
+  
+    
