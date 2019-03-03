@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerDoctor(event)
+  register(event)
   {
     event.preventDefault()
     const target = event.target
