@@ -28,9 +28,9 @@ export class SignupComponent implements OnInit {
     const address = target.querySelector('#address').value
     const contact = target.querySelector('#contact').value
     const email = target.querySelector('#email').value
-    const city = target.querySelector('#city').value
+    const city_id = target.querySelector('#city').value
     const password = target.querySelector('#password').value
-    var city_id: number = 13;   //time being
+    
 
     if((!target.querySelector('#r1').checked)&&(!target.querySelector('#r2').checked))
     {

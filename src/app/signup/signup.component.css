@@ -45,13 +45,23 @@
 }
 .pro input
 {    background-color: white;
-     color:gray;
+     color:black;
      width:75%;
      height:30px;
      margin-top: 10px;
      padding-left:3px;
      border-radius:5px;
 }
+.pro select
+{    background-color: white;
+     color: black;
+     width:75%;
+     height:30px;
+     margin-top: 10px;
+     padding-left:3px;
+     border-radius:5px;
+}
+
 .pro input[type="radio"]
 {    background-color: white;
      color:gray;
