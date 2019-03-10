@@ -175,7 +175,7 @@ addPrescription(addpres)
     console.log(this.storage.get("patient_id"));
   }
 
-  changeFollowStatus(event)
+  changeFollowStatus()
   {
     let patient_id = this.patient.patient_id;
   
