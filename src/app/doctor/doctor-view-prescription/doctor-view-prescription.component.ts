@@ -68,8 +68,12 @@ export class DoctorViewPrescriptionComponent implements OnInit {
 {
   if(this.patientsArray==undefined)
     {
-       this.notFoundError = true;
-       this.prescriptionsView = false;
+      this.notFoundError = true;
+      this.prescriptionsView = false;
+      this.noPrescriptions = false;
+      this.prescriptionsFound = false;
+      this.followed = false;
+      this.notfollowed = false;
     }
     else{
       this.http.get('https://e-prescription-api.herokuapp.com/check_follow/'+this.patientsArray[0].patient_id+'/'+this.cookieValue).subscribe(response => {

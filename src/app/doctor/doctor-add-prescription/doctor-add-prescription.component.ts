@@ -66,6 +66,8 @@ export class DoctorAddPrescriptionComponent implements OnInit {
     {
       this.isHidden = true;
       this.addPatientHidden = false;
+      this.followed = true;
+      this.notfollowed = false;
       this.http.get('https://e-prescription-api.herokuapp.com/all_cities').subscribe(response => {
         this.citiesResponse = response.json();
         this.citiesArray = this.citiesResponse["data"];
