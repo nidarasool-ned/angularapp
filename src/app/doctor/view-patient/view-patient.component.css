@@ -1,0 +1,14 @@
+tr, td{
+    padding: 20px;
+}
+img{
+    height: 15px;
+    width: auto;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+a
+{
+    vertical-align: middle;
+}

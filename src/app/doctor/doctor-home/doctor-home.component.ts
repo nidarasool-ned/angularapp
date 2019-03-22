@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-home',
@@ -14,7 +15,7 @@ export class DoctorHomeComponent implements OnInit {
   patientsIdArray: any[] = [];
   patientsArray: any[] = [];
 
-  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private cookieService: CookieService, private http: Http) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private cookieService: CookieService, private http: Http, private router: Router) { }
 
   ngOnInit() {
     this.cookieValue = this.cookieService.get('username');
@@ -57,6 +58,13 @@ export class DoctorHomeComponent implements OnInit {
 
   
   
+  }
+
+  openPatientProfile(id_of_patient)
+  {
+    console.log(id_of_patient);
+    this.storage.set("id_of_patient",id_of_patient);
+    this.router.navigate(['/doctor/view-patient/'+id_of_patient])
   }
 
 }

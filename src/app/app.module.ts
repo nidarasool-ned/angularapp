@@ -31,6 +31,9 @@ import { MyDoctorsComponent } from './patient/my-doctors/my-doctors.component';
 import { MyPrescriptionsComponent } from './patient/my-prescriptions/my-prescriptions.component';
 import { MyReportsComponent } from './patient/my-reports/my-reports.component';
 import { PatientDetailPrescriptionComponent } from './patient/patient-detail-prescription/patient-detail-prescription.component';
+import { ViewPatientComponent } from './doctor/view-patient/view-patient.component';
+import { ViewPatientPrescriptionComponent } from './doctor/view-patient-prescription/view-patient-prescription.component';
+import { DoctorsRequestComponent } from './patient/doctors-request/doctors-request.component';
 
 const routes : Route[] = [
   { path: 'login', component: LoginComponent},
@@ -40,6 +43,8 @@ const routes : Route[] = [
     component: DoctorMainScreenComponent,
     children: [
       { path: 'home', component: DoctorHomeComponent},
+      { path: 'view-patient/:patient_id', component: ViewPatientComponent},
+      { path: 'view-patient-prescription/:pres_id', component: ViewPatientPrescriptionComponent},
       { path: 'add-prescription', component: DoctorAddPrescriptionComponent},
       { path: 'view-prescription', component: DoctorViewPrescriptionComponent},
       { path: 'view-prescription/:pres_id', component: DoctorDetailPrescriptionComponent},
@@ -57,6 +62,7 @@ const routes : Route[] = [
         { path: 'view-prescription/:pres_id', component: PatientDetailPrescriptionComponent},
         { path: 'my-reports', component: MyReportsComponent},
         { path: 'view-profile', component: PatientProfileComponent},
+        { path: 'doctors-request', component: DoctorsRequestComponent},
         { path: 'logout', component: LogoutComponent},
         { path: '', redirectTo: 'search-doctor', pathMatch: 'full'}
       ]},
@@ -84,6 +90,9 @@ const routes : Route[] = [
     MyPrescriptionsComponent,
     MyReportsComponent,
     PatientDetailPrescriptionComponent,
+    ViewPatientComponent,
+    ViewPatientPrescriptionComponent,
+    DoctorsRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +103,7 @@ const routes : Route[] = [
     StorageServiceModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AppComponent, AuthService, AuthGuard, CookieService, LoginComponent, SignupComponent, DoctorAddPrescriptionComponent, DoctorViewPrescriptionComponent, PatientHomeComponent, PatientProfileComponent],
+  providers: [AppComponent, AuthService, AuthGuard, CookieService, LoginComponent, SignupComponent, DoctorAddPrescriptionComponent, DoctorViewPrescriptionComponent, PatientHomeComponent, PatientProfileComponent,  DoctorsRequestComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

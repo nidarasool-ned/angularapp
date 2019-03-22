@@ -1,0 +1,32 @@
+<div class="container">
+  <h4 class="text-center" style="margin-top: 20px">Patient Prescriptions</h4><br>
+  <table style="width:100%;">
+      <tr>
+          <td>MRN#: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.patient_id}}</span></td>
+          <td>Name: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.name}}</span></td>
+      </tr>
+      <tr>
+          <td>Gender: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.gender}}</span></td>
+          <td>Age: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.age}}</span></td>
+      </tr>
+      <tr>
+        <td>Cell Phone: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.cellphone}}</span></td>
+        <td colspan="2">Email: <span class="font-weight-bold">&nbsp;&nbsp;&nbsp;{{patient.email}}</span></td>
+      </tr>
+    </table>
+    <br>
+     <h4>Prescriptions</h4>
+        
+        <br><p class="text-center"  [style.display]="noPrescriptions ? 'block' : 'none'">No Prescriptions</p>
+
+
+  <table style="width:100%;" [style.display]="prescriptionsFound ? 'block' : 'none'" class="table table-hover">
+      <tr *ngFor="let pres of presArray" [id]="pres.prescription_id" class="clickable" (click)="navigateToDetail($event)">
+        <td style="width:30%;">{{pres.date}}</td>
+        <td style="width:70%;">{{pres.comment}}<br>
+      </td>
+      </tr>
+
+    </table>
+
+</div>
